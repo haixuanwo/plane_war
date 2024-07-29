@@ -38,6 +38,7 @@ else()
         add_executable(planeWar
             ${PROJECT_SOURCES}
             config.h
+            map.h map.cpp
             # res.qrc
         )
     endif()
