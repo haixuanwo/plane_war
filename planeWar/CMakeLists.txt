@@ -37,6 +37,7 @@ else()
     else()
         add_executable(planeWar
             ${PROJECT_SOURCES}
+            config.h
         )
     endif()
 endif()
