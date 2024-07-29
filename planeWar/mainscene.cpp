@@ -54,4 +54,7 @@ void MainScene::paintEvent(QPaintEvent *event)
     //绘制地图
     painter.drawPixmap(0,m_map.m_map1_posY , m_map.m_map1);
     painter.drawPixmap(0,m_map.m_map2_posY , m_map.m_map2);
+
+    //绘制英雄
+    painter.drawPixmap(m_hero.m_X,m_hero.m_Y, m_hero.m_Plane);
 }

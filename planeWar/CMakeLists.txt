@@ -39,6 +39,7 @@ else()
             ${PROJECT_SOURCES}
             config.h
             map.h map.cpp
+            heroplane.h heroplane.cpp
             # res.qrc
         )
     endif()

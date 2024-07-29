@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include "map.h"
+#include "heroplane.h"
 
 class MainScene : public QWidget
 {
@@ -27,5 +28,7 @@ public:
     Map m_map;
 
     QTimer m_Timer;
+    //飞机对象
+    HeroPlane m_hero;
 };
 #endif // MAINSCENE_H
