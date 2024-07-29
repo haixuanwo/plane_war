@@ -5,6 +5,8 @@
 #include <QTimer>
 #include "map.h"
 #include "heroplane.h"
+#include <QPaintEvent>
+#include <QMouseEvent>
 
 class MainScene : public QWidget
 {
@@ -23,6 +25,11 @@ public:
 
     //绘图事件
     void paintEvent(QPaintEvent *event);
+
+    //鼠标移动事件
+    void mouseMoveEvent(QMouseEvent *event);
+
+
 
     //地图对象
     Map m_map;

@@ -58,3 +58,34 @@ void MainScene::paintEvent(QPaintEvent *event)
     //绘制英雄
     painter.drawPixmap(m_hero.m_X,m_hero.m_Y, m_hero.m_Plane);
 }
+
+//鼠标移动事件
+void MainScene::mouseMoveEvent(QMouseEvent *event)
+{
+    int x = event->x() - m_hero.m_Rect.width()*0.5; //鼠标位置 - 飞机矩形的一半
+    int y = event->y() - m_hero.m_Rect.height()*0.5;
+
+    //边界检测
+    if(x <= 0 )
+    {
+        x = 0;
+    }
+
+    if(x >= GAME_WIDTH - m_hero.m_Rect.width())
+    {
+        x = GAME_WIDTH - m_hero.m_Rect.width();
+    }
+
+    if(y <= 0)
+    {
+        y = 0;
+    }
+
+    if(y >= GAME_HEIGHT - m_hero.m_Rect.height())
+    {
+        y = GAME_HEIGHT - m_hero.m_Rect.height();
+    }
+
+    m_hero.setPosition(x,y);
+}
+
