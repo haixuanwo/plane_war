@@ -8,6 +8,7 @@
 #include "bullet.h"
 #include <QPaintEvent>
 #include <QMouseEvent>
+#include "enemyplane.h"
 
 class MainScene : public QWidget
 {
@@ -31,6 +32,14 @@ public:
     void mouseMoveEvent(QMouseEvent *event);
 
 
+    //敌机出场
+    void enemyToScene();
+
+    //敌机数组
+    EnemyPlane m_enemys[ENEMY_NUM];
+
+    //敌机出场间隔记录
+    int m_recorder;
 
     //地图对象
     Map m_map;

@@ -41,6 +41,7 @@ else()
             map.h map.cpp
             heroplane.h heroplane.cpp
             bullet.h bullet.cpp
+            enemyplane.h enemyplane.cpp
             # res.qrc
         )
     endif()
