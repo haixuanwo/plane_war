@@ -9,6 +9,7 @@
 #include <QPaintEvent>
 #include <QMouseEvent>
 #include "enemyplane.h"
+#include "bomb.h"
 
 class MainScene : public QWidget
 {
@@ -54,5 +55,8 @@ public:
 
     //测试子弹代码
     // Bullet temp_bullet;
+
+    //爆炸数组
+    Bomb m_bombs[BOMB_NUM];
 };
 #endif // MAINSCENE_H

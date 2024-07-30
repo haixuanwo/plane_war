@@ -42,6 +42,7 @@ else()
             heroplane.h heroplane.cpp
             bullet.h bullet.cpp
             enemyplane.h enemyplane.cpp
+            bomb.h bomb.cpp
             # res.qrc
         )
     endif()

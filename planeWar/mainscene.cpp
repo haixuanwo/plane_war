@@ -84,6 +84,15 @@ void MainScene::updatePosition()
             m_enemys[i].updatePosition();
         }
     }
+
+    //计算爆炸播放的图片
+    for(int i = 0 ; i < BOMB_NUM;i++)
+    {
+        if(m_bombs[i].m_Free == false)
+        {
+            m_bombs[i].updateInfo();
+        }
+    }
 }
 
 void MainScene::paintEvent(QPaintEvent *event)
@@ -115,6 +124,15 @@ void MainScene::paintEvent(QPaintEvent *event)
         if(m_enemys[i].m_Free == false)
         {
             painter.drawPixmap(m_enemys[i].m_X,m_enemys[i].m_Y,m_enemys[i].m_enemy);
+        }
+    }
+
+    //绘制爆炸图片
+    for(int i = 0 ; i < BOMB_NUM;i++)
+    {
+        if(m_bombs[i].m_Free == false)
+        {
+            painter.drawPixmap(m_bombs[i].m_X,m_bombs[i].m_Y,m_bombs[i].m_pixArr[m_bombs[i].m_index]);
         }
     }
 }
@@ -198,6 +216,21 @@ void MainScene::collisionDetection()
             {
                 m_enemys[i].m_Free = true;
                 m_hero.m_bullets[j].m_Free = true;
+
+                //播放爆炸效果
+                for(int k = 0 ; k < BOMB_NUM;k++)
+                {
+                    if(m_bombs[k].m_Free)
+                    {
+                        //爆炸状态设置为非空闲
+                        m_bombs[k].m_Free = false;
+
+                        //更新坐标
+                        m_bombs[k].m_X = m_enemys[i].m_X;
+                        m_bombs[k].m_Y = m_enemys[i].m_Y;
+                        break;
+                    }
+                }
             }
         }
     }
