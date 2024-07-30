@@ -35,6 +35,10 @@ public:
     //敌机出场
     void enemyToScene();
 
+
+    void collisionDetection();
+
+
     //敌机数组
     EnemyPlane m_enemys[ENEMY_NUM];
 
