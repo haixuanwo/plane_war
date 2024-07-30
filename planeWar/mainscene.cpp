@@ -2,6 +2,7 @@
 #include "config.h"
 #include <QIcon>
 #include <QPainter>
+#include <QSound>
 
 MainScene::MainScene(QWidget *parent)
     : QWidget(parent)
@@ -18,6 +19,7 @@ void MainScene::initScene()
 {
     //初始化窗口大小
     setFixedSize(GAME_WIDTH,GAME_HEIGHT);
+
     //设置窗口标题
     setWindowTitle(GAME_TITLE);
 
@@ -35,6 +37,9 @@ void MainScene::initScene()
 
 void MainScene::playGame()
 {
+    //启动背景音乐
+    QSound::play(SOUND_BACKGROUND);
+
     //启动定时器
     m_Timer.start();
 
@@ -231,6 +236,9 @@ void MainScene::collisionDetection()
                         break;
                     }
                 }
+
+                //播放音效
+                QSound::play(SOUND_BOMB);
             }
         }
     }
