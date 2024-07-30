@@ -5,6 +5,7 @@
 #include <QTimer>
 #include "map.h"
 #include "heroplane.h"
+#include "bullet.h"
 #include <QPaintEvent>
 #include <QMouseEvent>
 
@@ -37,5 +38,8 @@ public:
     QTimer m_Timer;
     //飞机对象
     HeroPlane m_hero;
+
+    //测试子弹代码
+    // Bullet temp_bullet;
 };
 #endif // MAINSCENE_H

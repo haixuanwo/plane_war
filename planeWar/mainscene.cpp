@@ -46,6 +46,23 @@ void MainScene::updatePosition()
 {
     //更新地图坐标
     m_map.mapPosition();
+
+    //测试子弹代码
+    // temp_bullet.m_Free = false;
+    // temp_bullet.updatePosition();
+
+    //发射子弹
+    m_hero.shoot();
+
+    //计算子弹坐标
+    for(int i = 0 ;i < BULLET_NUM;i++)
+    {
+        //如果子弹状态为非空闲，计算发射位置
+        if(!m_hero.m_bullets[i].m_Free)
+        {
+            m_hero.m_bullets[i].updatePosition();
+        }
+    }
 }
 
 void MainScene::paintEvent(QPaintEvent *event)
@@ -57,6 +74,19 @@ void MainScene::paintEvent(QPaintEvent *event)
 
     //绘制英雄
     painter.drawPixmap(m_hero.m_X,m_hero.m_Y, m_hero.m_Plane);
+
+    //测试子弹代码
+    // painter.drawPixmap(temp_bullet.m_X, temp_bullet.m_Y, temp_bullet.m_Bullet);
+
+    //绘制子弹
+    for(int i = 0 ;i < BULLET_NUM;i++)
+    {
+        //如果子弹状态为非空闲，计算发射位置
+        if(!m_hero.m_bullets[i].m_Free)
+        {
+            painter.drawPixmap(m_hero.m_bullets[i].m_X,m_hero.m_bullets[i].m_Y,m_hero.m_bullets[i].m_Bullet);
+        }
+    }
 }
 
 //鼠标移动事件
