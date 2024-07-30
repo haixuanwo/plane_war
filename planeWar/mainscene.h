@@ -10,6 +10,7 @@
 #include <QMouseEvent>
 #include "enemyplane.h"
 #include "bomb.h"
+#include <QSound>
 
 class MainScene : public QWidget
 {
@@ -58,5 +59,7 @@ public:
 
     //爆炸数组
     Bomb m_bombs[BOMB_NUM];
+
+    std::shared_ptr<QSound> bombMusic;
 };
 #endif // MAINSCENE_H

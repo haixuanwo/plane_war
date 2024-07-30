@@ -7,6 +7,9 @@
 MainScene::MainScene(QWidget *parent)
     : QWidget(parent)
 {
+
+    bombMusic = std::make_shared<QSound>(SOUND_BOMB);
+
     //初始化场景
     initScene();
 
@@ -227,6 +230,9 @@ void MainScene::collisionDetection()
                 {
                     if(m_bombs[k].m_Free)
                     {
+                        //播放音效
+                        bombMusic->play();
+
                         //爆炸状态设置为非空闲
                         m_bombs[k].m_Free = false;
 
@@ -236,9 +242,6 @@ void MainScene::collisionDetection()
                         break;
                     }
                 }
-
-                //播放音效
-                QSound::play(SOUND_BOMB);
             }
         }
     }
